@@ -5,10 +5,10 @@ public class ProceduralPhoneBook {
     public static void main(String[] args) {
 
         int menuInput;
-        int counter = 0;
+        int contactsCount = 0;
 
         Scanner scann = new Scanner(System.in);
-        String[] phoneBook = new String[20];
+        String[] names = new String[20];
 
         while (true) {
 
@@ -24,13 +24,13 @@ public class ProceduralPhoneBook {
             if (menuInput == 1) {
                 System.out.print("\nEnter contact name: ");
 
-                phoneBook[counter] = scann.nextLine();
-                counter++;
+                names[contactsCount] = scann.nextLine();
+                contactsCount++;
 
             } else if (menuInput == 2) {
                 System.out.println("\nContact list: ");
-                for (int i = 0; phoneBook[i] != null; i++) {
-                    System.out.println((i + 1) + ". " + phoneBook[i]);
+                for (int i = 0; names[i] != null; i++) {
+                    System.out.println((i + 1) + ". " + names[i]);
                 }
 
             } else break;
