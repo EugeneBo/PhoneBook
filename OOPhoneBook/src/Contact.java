@@ -6,12 +6,12 @@ public class Contact {
         name = n;
     }
 
-    public void setPhone(String n) {
-        phone = n;
+    public void setPhone(String p) {
+        phone = p;
     }
 
-    public void setEmail(String n) {
-        email = n;
+    public void setEmail(String e) {
+        email = e;
     }
 
     public void showContact (){
