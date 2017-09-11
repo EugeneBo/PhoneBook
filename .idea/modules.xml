@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OOPhoneBook/OOPhoneBook.iml" filepath="$PROJECT_DIR$/OOPhoneBook/OOPhoneBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhoneBook.iml" filepath="$PROJECT_DIR$/PhoneBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProceduralPhoneBook/ProceduralPhoneBook.iml" filepath="$PROJECT_DIR$/ProceduralPhoneBook/ProceduralPhoneBook.iml" />
+    </modules>
+  </component>
+</project>
