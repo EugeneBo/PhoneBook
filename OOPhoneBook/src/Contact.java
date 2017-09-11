@@ -14,10 +14,10 @@ public class Contact {
         email = e;
     }
 
-    public void showContact (){
-        System.out.println("Name: "+ name);
-        System.out.println("Phone: "+ phone);
-        System.out.println("E-mail: "+ email +"\n");
+    public void showContact() {
+        System.out.println("Name: " + name);
+        System.out.println("Phone: " + phone);
+        System.out.println("E-mail: " + email + "\n");
     }
 
 }
