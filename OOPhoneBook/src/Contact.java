@@ -20,4 +20,10 @@ public class Contact {
         System.out.println("E-mail: " + email + "\n");
     }
 
+    public void deleteContact() {
+        name = null;
+        phone = null;
+        email = null;
+    }
+
 }

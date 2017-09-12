@@ -34,14 +34,20 @@ public class PhoneBook {
                 contactsCount++;
 
             } else if (menuInput == 2) {
-                System.out.println("\nContact list: "+"\n");
+                System.out.println("\nContact list: " + "\n");
                 for (int i = 0; phoneBook[i] != null; i++) {
                     phoneBook[i].showContact();
                 }
 
             } else if (menuInput == 3) {
-                //удаление контакта
-
+                System.out.println("Enter contact name to delete: ");
+                String x=scann.nextLine();
+                for (int i = 0; i < phoneBook.length; i++) {
+                    if (phoneBook[i].name.equals(x)) {
+                     phoneBook[i]=null;
+                     break;
+                    }
+                }
             } else break;
 
 
