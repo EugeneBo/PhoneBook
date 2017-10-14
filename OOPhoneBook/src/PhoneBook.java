@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PhoneBook {
     public static void main(String[] args) {
-        int menuInput;
+
         int contactsCount = 0;
 
         Scanner scann = new Scanner(System.in);
@@ -10,7 +10,7 @@ public class PhoneBook {
 
         while (true) {
 
-
+            int menuInput;
             System.out.println("\nMenu: ");
             System.out.println("1 - Add new contact");
             System.out.println("2 - Show contacts");
@@ -36,14 +36,14 @@ public class PhoneBook {
             } else if (menuInput == 2) {
                 System.out.println("\nContact list: " + "\n");
                 for (int i = 0; phoneBook[i] != null; i++) {
-                    phoneBook[i].showContact();
+                    System.out.println(phoneBook[i]);
                 }
 
             } else if (menuInput == 3) {
                 System.out.println("Enter contact name to delete: ");
-                String x=scann.nextLine();
+                String userEnteredName=scann.nextLine();
                 for (int i = 0; i < phoneBook.length; i++) {
-                    if (phoneBook[i].name.equals(x)) {
+                    if (phoneBook[i].getName().equals(userEnteredName)) {
                      phoneBook[i]=null;
                      break;
                     }
