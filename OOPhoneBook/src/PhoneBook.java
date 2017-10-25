@@ -40,7 +40,8 @@ public class PhoneBook {
                     System.out.println("\nContact list (" + newContactList.size() + "):\n");
 
                     for (int i = 0; i <= newContactList.size() - 1; i++) {
-                        System.out.println(newContactList.get(i).toString());
+                      System.out.println(i+".\n"+newContactList.get(i).toString());
+
                     }
 
                 }

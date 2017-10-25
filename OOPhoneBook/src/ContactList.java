@@ -1,48 +1,47 @@
 
-class ContactList {
+public class ContactList {
 
-    private Contact[] arrayContacts;
-
+    private Contact[] Contacts;
 
     public void add(Contact contact) {
 
-        if (arrayContacts == null) {
-            arrayContacts = new Contact[1];
-            arrayContacts[0] = contact;
+        if (Contacts == null) {
+            Contacts = new Contact[1];
+            Contacts[0] = contact;
         } else {
-            Contact[] temp = arrayContacts;
-            arrayContacts = new Contact[arrayContacts.length + 1];
+            Contact[] temp = Contacts;
+            Contacts = new Contact[Contacts.length + 1];
             for (int i = 0; i <= temp.length - 1; i++) {
-                arrayContacts[i] = temp[i];
-                arrayContacts[arrayContacts.length - 1] = contact;
+                Contacts[i] = temp[i];
             }
+            Contacts[Contacts.length - 1] = contact;
         }
     }
 
     public void remove(int index) {
 
-        Contact[] temp = new Contact[arrayContacts.length - 1];
+        Contact[] temp = new Contact[Contacts.length - 1];
 
         for (int i = 0; i < index; i++) {
-            temp[i] = arrayContacts[i];
+            temp[i] = Contacts[i];
         }
 
-        for (int i = index; i < temp.length; i++) {
-            temp[i] = arrayContacts[i + 1];
+        for (int i = index; i <=temp.length-1; i++) {
+            temp[i] = Contacts[i+1];
         }
-        arrayContacts = temp;
+        Contacts = temp;
     }
 
     public Contact get(int index) {
-        return arrayContacts[index];
+        return Contacts[index];
     }
 
     public int size() {
-        return arrayContacts.length;
+        return Contacts.length;
     }
 
     public boolean isEmpty() {
-        return arrayContacts == null || arrayContacts.length == 0;
+        return Contacts == null || Contacts.length == 0;
     }
 
 
