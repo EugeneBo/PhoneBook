@@ -1,76 +1,54 @@
-
-
 public class ContactList {
 
-    private Contact[] Contacts;
+    private Contact[] contacts = new Contact[4];
     private int contactsCounter = 0;
 
     public void add(Contact contact) {
 
-        if (Contacts == null) {
-            Contacts = new Contact[10];
-            Contacts[0] = contact;
+        if (contacts == null) {
+            contacts[0] = contact;
             contactsCounter++;
         } else {
-            //Contact[] temp = Contacts;
-
-            // Contacts = new Contact[Contacts.length + 1];
-
-            //System.arraycopy(temp,0,Contacts,0,temp.length);
-
-            Contacts[contactsCounter] = contact;
-
+            contacts[contactsCounter] = contact;
             contactsCounter++;
+        }
+        enlargingArray();
+    }
+
+    public void add(int index, Contact contact) {
+        System.arraycopy(contacts, index, contacts, index + 1, contactsCounter - index);
+        contacts[index] = contact;
+        contactsCounter++;
+        enlargingArray();
+    }
+
+    private void enlargingArray() {
+        if (arrayLength() == numberOfContacts()) {
+            Contact[] temp = new Contact[((arrayLength()*3)/2)+1];
+            System.arraycopy(contacts, 0, temp, 0, arrayLength());
+            contacts = temp;
         }
     }
 
-
-    public void add(int index, Contact contact) {
-        Contact[] temp = new Contact[Contacts.length + 1];
-
-        System.arraycopy(Contacts, 0, temp, 0, index);
-        temp[index] = contact;
-
-        System.arraycopy(Contacts, index, temp, index + 1, Contacts.length - index);
-
-        Contacts = temp;
-    }
-
-
-    public void enlargingArray() {
-
-
-    }
-
-
     public void remove(int index) {
-
-        //Contact[] temp = new Contact[Contacts.length - 1];
-        //System.arraycopy(Contacts,0,temp,0,index);
-        //System.arraycopy(Contacts,index+1,temp,index,Contacts.length-(index+1));
-        //Contacts = temp;
-       // if (contactsCounter > 0) {
-
-            for (int i = index; i < contactsCounter - 1; i++) {
-                Contacts[i] = Contacts[i + 1];
-            }
-            contactsCounter--;
-        //} else System.out.println("No contacts to delete!");
+        System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index - 1);
+        contactsCounter--;
     }
-
 
     public Contact get(int index) {
-        return Contacts[index];
+        return contacts[index];
     }
 
-    public int size() {
-
+    public int numberOfContacts() {
         return contactsCounter;
-    }   //переписать так, чтобы возвращал фактическое число контактов в массиве, а не размер самого массива
+    }
+
+    public int arrayLength() {
+        return contacts.length;
+    }
 
     public boolean isEmpty() {
-        return Contacts == null || Contacts.length == 0;
+        return contacts == null || contacts.length == 0;
     }
-
 
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OOPhoneBook/OOPhoneBook.iml" filepath="$PROJECT_DIR$/OOPhoneBook/OOPhoneBook.iml" />
       <module fileurl="file://$PROJECT_DIR$/PhoneBook.iml" filepath="$PROJECT_DIR$/PhoneBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhoneBookArrayList/PhoneBookArrayList.iml" filepath="$PROJECT_DIR$/PhoneBookArrayList/PhoneBookArrayList.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProceduralPhoneBook/ProceduralPhoneBook.iml" filepath="$PROJECT_DIR$/ProceduralPhoneBook/ProceduralPhoneBook.iml" />
     </modules>
   </component>

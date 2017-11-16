@@ -36,7 +36,8 @@ public class PhoneBook {
 
 
             ///// проверка
-            System.out.println("\nCONTATS COUNT "+newContactList.size());
+            System.out.println("\n\nCONTACTS COUNT :"+newContactList.numberOfContacts());
+            System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
             /////
 
 
@@ -47,14 +48,22 @@ public class PhoneBook {
 
                 newContactList.add(contactDataInput());
 
+            } else if (menuInput == 2) {
+
+                System.out.print("Enter contact index: ");
+                int contactIndexToAdd = Integer.parseInt(scann.nextLine());
+                newContactList.add(contactIndexToAdd,contactDataInput());
+
+
             } else if (menuInput == 3) {
-                if (newContactList.size()==0) {
+                if (newContactList.numberOfContacts()==0) {
                     System.out.println("\nNo contacts!");
                 } else {
 
-                    System.out.println("\nContact list (" + newContactList.size() + "):\n");
+                    System.out.println("\nNumber of contacts (" + newContactList.numberOfContacts() + ")\n");
 
-                    for (int i = 0; i <= newContactList.size() - 1; i++) {
+                    for (int i = 0; i < newContactList.arrayLength(); i++) {
+                        if (newContactList.get(i)!=null)
                       System.out.println(i+".\n"+newContactList.get(i).toString());
 
                     }
@@ -63,12 +72,19 @@ public class PhoneBook {
 
             }
             else if (menuInput == 4) {
-                if (newContactList.size() == 0) {
+                if (newContactList.numberOfContacts() == 0) {
                     System.out.println("\nNo contacts to delete!");
-                } else {
+                } else
+                {
+
+
+
                     System.out.println("Enter contact index to delete: ");
                     int index = Integer.parseInt(scann.nextLine());
-                    newContactList.remove(index);
+
+                    if (index < 0 || index > newContactList.numberOfContacts()) {
+                        System.out.println("\nOUT OF BOUNDS!");
+                    } else newContactList.remove(index);
                 }
 
 
