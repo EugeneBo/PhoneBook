@@ -26,4 +26,8 @@ public class Contact {
         return ("Name: "+ name + "\n" + "Phone: " + phone + "\n" +"E-mail: " + email + "\n");
     }
 
+    public char getFirstNameLetter (){
+        return name.charAt(0);
+    }
+
 }

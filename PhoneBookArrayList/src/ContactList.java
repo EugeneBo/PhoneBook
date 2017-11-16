@@ -24,6 +24,14 @@ public class ContactList {
         }
     }
 
+    public void sort (){
+        char[] charArray = new char[arrayLength()];
+        for (int i =0; i<arrayLength(); i++){
+            charArray[i]=contacts[i].getFirstNameLetter();  ////законил тут
+        }
+
+    }
+
     public void remove(int index) {
         System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index - 1);
         contactsCounter--;
