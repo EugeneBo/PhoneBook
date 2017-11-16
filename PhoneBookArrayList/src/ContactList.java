@@ -1,9 +1,9 @@
 public class ContactList {
 
-    private Contact[] contacts = new Contact[4];
+    private Contact[] contacts = new Contact[10];
     private int contactsCounter = 0;
 
-    public void add(Contact contact) {
+     void add(Contact contact) {
 
         if (contacts == null) {
             contacts[0] = contact;
@@ -15,7 +15,7 @@ public class ContactList {
         enlargingArray();
     }
 
-    public void add(int index, Contact contact) {
+     void add(int index, Contact contact) {
         System.arraycopy(contacts, index, contacts, index + 1, contactsCounter - index);
         contacts[index] = contact;
         contactsCounter++;
@@ -30,20 +30,20 @@ public class ContactList {
         }
     }
 
-    public void remove(int index) {
+     void remove(int index) {
         System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index - 1);
         contactsCounter--;
     }
 
-    public Contact get(int index) {
+     Contact get(int index) {
         return contacts[index];
     }
 
-    public int numberOfContacts() {
+     int numberOfContacts() {
         return contactsCounter;
     }
 
-    public int arrayLength() {
+     int arrayLength() {
         return contacts.length;
     }
 
