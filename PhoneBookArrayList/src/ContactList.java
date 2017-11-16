@@ -3,19 +3,13 @@ public class ContactList {
     private Contact[] contacts = new Contact[10];
     private int contactsCounter = 0;
 
-     void add(Contact contact) {
-
-        if (contacts == null) {
-            contacts[0] = contact;
-            contactsCounter++;
-        } else {
-            contacts[contactsCounter] = contact;
-            contactsCounter++;
-        }
+    public void add(Contact contact) {
+        contacts[contactsCounter] = contact;
+        contactsCounter++;
         enlargingArray();
     }
 
-     void add(int index, Contact contact) {
+    public void add(int index, Contact contact) {
         System.arraycopy(contacts, index, contacts, index + 1, contactsCounter - index);
         contacts[index] = contact;
         contactsCounter++;
@@ -24,31 +18,27 @@ public class ContactList {
 
     private void enlargingArray() {
         if (arrayLength() == numberOfContacts()) {
-            Contact[] temp = new Contact[((arrayLength()*3)/2)+1];
+            Contact[] temp = new Contact[((arrayLength() * 3) / 2) + 1];
             System.arraycopy(contacts, 0, temp, 0, arrayLength());
             contacts = temp;
         }
     }
 
-     void remove(int index) {
+    public void remove(int index) {
         System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index - 1);
         contactsCounter--;
     }
 
-     Contact get(int index) {
+    public Contact get(int index) {
         return contacts[index];
     }
 
-     int numberOfContacts() {
+    public int numberOfContacts() {
         return contactsCounter;
     }
 
-     int arrayLength() {
+    public int arrayLength() {
         return contacts.length;
-    }
-
-    public boolean isEmpty() {
-        return contacts == null || contacts.length == 0;
     }
 
 }
