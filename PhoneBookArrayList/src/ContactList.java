@@ -25,8 +25,8 @@ public class ContactList {
     }
 
     private void reductionArray() {
-        if (arrayLength()-numberOfContacts()>(0.7*arrayLength()) && arrayLength()-numberOfContacts()>10) {
-            Contact[] temp = new Contact[contacts.length - (contacts.length/2)-1];
+        if (arrayLength() - numberOfContacts() > (0.7 * arrayLength()) && arrayLength() - numberOfContacts() > 10) {
+            Contact[] temp = new Contact[contacts.length - (contacts.length / 2) - 1];
             System.arraycopy(contacts, 0, temp, 0, numberOfContacts());
             contacts = temp;
         }
@@ -35,7 +35,7 @@ public class ContactList {
     public void sort() {
         Contact[] sortedArray = new Contact[contactsCounter];
 
-        System.arraycopy(contacts,0, sortedArray,0,contactsCounter);
+        System.arraycopy(contacts, 0, sortedArray, 0, contactsCounter);
 
         for (int i = sortedArray.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -46,7 +46,7 @@ public class ContactList {
                 }
             }
         }
-        System.arraycopy(sortedArray,0,contacts,0,contactsCounter);
+        System.arraycopy(sortedArray, 0, contacts, 0, contactsCounter);
     }
 
     public void remove(int index) {
@@ -64,7 +64,7 @@ public class ContactList {
     }
 
     public int arrayLength() {
-           return contacts.length;
+        return contacts.length;
     }
 
 }

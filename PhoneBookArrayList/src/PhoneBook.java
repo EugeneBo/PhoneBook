@@ -32,7 +32,7 @@ public class PhoneBook {
             System.out.println("Type any other number to EXIT");
 
             System.out.println("\nCONTACTS COUNT :" + newContactList.numberOfContacts());
-           System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
+            System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
 
             System.out.print("\nMake your choice: ");
 
