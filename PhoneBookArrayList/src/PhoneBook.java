@@ -31,7 +31,7 @@ public class PhoneBook {
             System.out.println("4 - Delete contacts");
             System.out.println("Type any other number to EXIT");
 
-            System.out.println("\n\nCONTACTS COUNT :" + newContactList.numberOfContacts());
+            System.out.println("\nCONTACTS COUNT :" + newContactList.numberOfContacts());
            System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
 
             System.out.print("\nMake your choice: ");
@@ -55,7 +55,7 @@ public class PhoneBook {
 
                     newContactList.sort();
 
-                    for (int i = 0; i < newContactList.sortedArrayLength(); i++) {
+                    for (int i = 0; i < newContactList.arrayLength(); i++) {
                         if (newContactList.get(i) != null)
                             System.out.println(i + ".\n" + newContactList.get(i).toString());
                     }

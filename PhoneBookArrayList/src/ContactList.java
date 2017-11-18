@@ -1,7 +1,6 @@
 public class ContactList {
 
     private Contact[] contacts = new Contact[10];
-    private Contact[] sortedArray;
     private int contactsCounter = 0;
 
     public void add(Contact contact) {
@@ -34,7 +33,7 @@ public class ContactList {
     }
 
     public void sort() {
-        sortedArray = new Contact[contactsCounter];
+        Contact[] sortedArray = new Contact[contactsCounter];
 
         System.arraycopy(contacts,0, sortedArray,0,contactsCounter);
 
@@ -47,8 +46,9 @@ public class ContactList {
                 }
             }
         }
-
+        System.arraycopy(sortedArray,0,contacts,0,contactsCounter);
     }
+
     public void remove(int index) {
         System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index);
         contactsCounter--;
@@ -56,7 +56,7 @@ public class ContactList {
     }
 
     public Contact get(int index) {
-        return sortedArray[index];
+        return contacts[index];
     }
 
     public int numberOfContacts() {
@@ -65,10 +65,6 @@ public class ContactList {
 
     public int arrayLength() {
            return contacts.length;
-    }
-
-    public int sortedArrayLength() {
-        return sortedArray.length;
     }
 
 }
