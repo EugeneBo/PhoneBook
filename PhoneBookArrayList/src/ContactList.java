@@ -1,6 +1,7 @@
 public class ContactList {
 
     private Contact[] contacts = new Contact[10];
+    private Contact[] sortedArray;
     private int contactsCounter = 0;
 
     public void add(Contact contact) {
@@ -17,28 +18,45 @@ public class ContactList {
     }
 
     private void enlargingArray() {
-        if (arrayLength() == numberOfContacts()) {
-            Contact[] temp = new Contact[((arrayLength() * 3) / 2) + 1];
-            System.arraycopy(contacts, 0, temp, 0, arrayLength());
+        if (contacts.length == numberOfContacts()) {
+            Contact[] temp = new Contact[((contacts.length * 3) / 2) + 1];
+            System.arraycopy(contacts, 0, temp, 0, contacts.length);
             contacts = temp;
         }
     }
 
-    public void sort (){
-        char[] charArray = new char[arrayLength()];
-        for (int i =0; i<arrayLength(); i++){
-            charArray[i]=contacts[i].getFirstNameLetter();  ////законил тут
+    private void reductionArray() {
+        if (arrayLength()-numberOfContacts()>(0.7*arrayLength()) && arrayLength()-numberOfContacts()>10) {
+            Contact[] temp = new Contact[contacts.length - (contacts.length/2)-1];
+            System.arraycopy(contacts, 0, temp, 0, numberOfContacts());
+            contacts = temp;
+        }
+    }
+
+    public void sort() {
+        sortedArray = new Contact[contactsCounter];
+
+        System.arraycopy(contacts,0, sortedArray,0,contactsCounter);
+
+        for (int i = sortedArray.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (sortedArray[j].getFirstNameLetter() > sortedArray[j + 1].getFirstNameLetter()) {
+                    Contact buffer = sortedArray[j];
+                    sortedArray[j] = sortedArray[j + 1];
+                    sortedArray[j + 1] = buffer;
+                }
+            }
         }
 
     }
-
     public void remove(int index) {
-        System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index - 1);
+        System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index);
         contactsCounter--;
+        reductionArray();
     }
 
     public Contact get(int index) {
-        return contacts[index];
+        return sortedArray[index];
     }
 
     public int numberOfContacts() {
@@ -46,7 +64,11 @@ public class ContactList {
     }
 
     public int arrayLength() {
-        return contacts.length;
+           return contacts.length;
+    }
+
+    public int sortedArrayLength() {
+        return sortedArray.length;
     }
 
 }

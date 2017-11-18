@@ -30,35 +30,38 @@ public class PhoneBook {
             System.out.println("3 - Show contacts");
             System.out.println("4 - Delete contacts");
             System.out.println("Type any other number to EXIT");
+
+            System.out.println("\n\nCONTACTS COUNT :" + newContactList.numberOfContacts());
+           System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
+
             System.out.print("\nMake your choice: ");
 
-            ///// проверка
-            System.out.println("\n\nCONTACTS COUNT :" + newContactList.numberOfContacts());
-            System.out.println("ARRAY LENGTH :" + newContactList.arrayLength());
-            /////
 
             int menuInput = Integer.parseInt(scann.nextLine());
 
-            if (menuInput == 1) {
+            if (menuInput == 1) { //упорядоченное добавление контактов
 
                 newContactList.add(contactDataInput());
 
-            } else if (menuInput == 2) {
+            } else if (menuInput == 2) {//добавление контакта по индексу
                 System.out.print("Enter contact index: ");
                 int contactIndexToAdd = Integer.parseInt(scann.nextLine());
                 newContactList.add(contactIndexToAdd, contactDataInput());
 
-            } else if (menuInput == 3) {
+            } else if (menuInput == 3) { //Вывод контактов на экран
                 if (newContactList.numberOfContacts() == 0) {
                     System.out.println("\nNo contacts!");
                 } else {
-                    for (int i = 0; i < newContactList.arrayLength(); i++) {
+
+                    newContactList.sort();
+
+                    for (int i = 0; i < newContactList.sortedArrayLength(); i++) {
                         if (newContactList.get(i) != null)
                             System.out.println(i + ".\n" + newContactList.get(i).toString());
                     }
                 }
 
-            } else if (menuInput == 4) {
+            } else if (menuInput == 4) { //удаление контактов по индексу
                 if (newContactList.numberOfContacts() == 0) {
                     System.out.println("\nNo contacts to delete!");
                 } else {
