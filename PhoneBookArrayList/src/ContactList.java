@@ -2,11 +2,13 @@ public class ContactList {
 
     private Contact[] contacts = new Contact[10];
     private int contactsCounter = 0;
+    private boolean sorted = false;
 
     public void add(Contact contact) {
         contacts[contactsCounter] = contact;
         contactsCounter++;
         enlargingArray();
+        sorted = false;
     }
 
     public void add(int index, Contact contact) {
@@ -14,6 +16,7 @@ public class ContactList {
         contacts[index] = contact;
         contactsCounter++;
         enlargingArray();
+        sorted = false;
     }
 
     private void enlargingArray() {
@@ -33,26 +36,25 @@ public class ContactList {
     }
 
     public void sort() {
-        Contact[] sortedArray = new Contact[contactsCounter];
-
-        System.arraycopy(contacts, 0, sortedArray, 0, contactsCounter);
-
-        for (int i = sortedArray.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (sortedArray[j].getFirstNameLetter() > sortedArray[j + 1].getFirstNameLetter()) {
-                    Contact buffer = sortedArray[j];
-                    sortedArray[j] = sortedArray[j + 1];
-                    sortedArray[j + 1] = buffer;
+        if (!sorted) {
+            for (int i = numberOfContacts() - 1; i > 0; i--) {
+                for (int j = 0; j < i; j++) {
+                    if (contacts[j].getFirstNameLetter() > contacts[j + 1].getFirstNameLetter()) {
+                        Contact buffer = contacts[j];
+                        contacts[j] = contacts[j + 1];
+                        contacts[j + 1] = buffer;
+                    }
                 }
             }
+            sorted = true;
         }
-        System.arraycopy(sortedArray, 0, contacts, 0, contactsCounter);
     }
 
     public void remove(int index) {
         System.arraycopy(contacts, index + 1, contacts, index, contactsCounter - index);
         contactsCounter--;
         reductionArray();
+        sorted = false;
     }
 
     public Contact get(int index) {
