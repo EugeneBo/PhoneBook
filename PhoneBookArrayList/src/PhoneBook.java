@@ -6,16 +6,14 @@ public class PhoneBook {
 
     private static Contact contactDataInput() {
 
-        Contact newContact = new Contact();
-
         System.out.print("\nEnter contact name: ");
-        newContact.setName(scann.nextLine());
+        String name = scann.nextLine();
         System.out.print("Enter contact phone: ");
-        newContact.setPhone(scann.nextLine());
+        String phone = scann.nextLine();
         System.out.print("Enter contact e-mail: ");
-        newContact.setEmail(scann.nextLine());
+        String email = scann.nextLine();
 
-        return newContact;
+        return new Contact(name, phone, email);
     }
 
     public static void main(String[] args) {
@@ -88,6 +86,6 @@ public class PhoneBook {
 2) итераторы
 3) еще задания на коллекции (тяжело идет)
 4) почему коллекиця не должна заниматься сортировкой?
-5)
+5) Инициализирую объект Contact через конструктор. Нужно ли? Ведь есть сеттер.
 
 */
