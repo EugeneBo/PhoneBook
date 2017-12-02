@@ -20,7 +20,7 @@ public class ContactList {
     }
 
     private void enlargingArray() {
-        if (contacts.length == numberOfContacts()) {
+        if (contacts.length == size()) {
             Contact[] temp = new Contact[((contacts.length * 3) / 2) + 1];
             System.arraycopy(contacts, 0, temp, 0, contacts.length);
             contacts = temp;
@@ -28,16 +28,16 @@ public class ContactList {
     }
 
     private void reductionArray() {
-        if (arrayLength() - numberOfContacts() > (0.7 * arrayLength()) && arrayLength() - numberOfContacts() > 10) {
+        if (arrayLength() - size() > (0.7 * arrayLength()) && arrayLength() - size() > 10) {
             Contact[] temp = new Contact[contacts.length - (contacts.length / 2) - 1];
-            System.arraycopy(contacts, 0, temp, 0, numberOfContacts());
+            System.arraycopy(contacts, 0, temp, 0, size());
             contacts = temp;
         }
     }
 
     public void sort() {
         if (!sorted) {
-            for (int i = numberOfContacts() - 1; i > 0; i--) {
+            for (int i = size() - 1; i > 0; i--) {
                 for (int j = 0; j < i; j++) {
                     if (contacts[j].getFirstNameLetter() > contacts[j + 1].getFirstNameLetter()) {
                         Contact buffer = contacts[j];
@@ -61,9 +61,9 @@ public class ContactList {
         return contacts[index];
     }
 
-    public int numberOfContacts() {
+    public int size() {
         return contactsCounter;
-    }
+    } //size
 
     public int arrayLength() {
         return contacts.length;
